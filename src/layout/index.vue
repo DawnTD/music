@@ -34,6 +34,9 @@
             </div>
         </div>
         <div class="overlay-app"></div>
+        <div class="flex w-auto border-t justify-center">
+            <audio class=" w-full rounded-none" src="https://music.163.com/song/media/outer/url?id=2004349271.mp3" controls loop autoplay></audio>
+        </div>
     </div>
 </template>
 <script setup lang='ts'>

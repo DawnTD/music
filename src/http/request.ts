@@ -40,11 +40,11 @@ class request {
         //axios请求返回之后的处理
         //请求返回之后的处理
         this.instance.interceptors.response.use((res: AxiosResponse) => {
-            console.log(res.data)
+            console.log(res)
             if (res.data.code != 200) {
                 return Promise.reject(res.data.msg || '服务器出错')
             } else {
-                return res.data
+                return res
             }
         }, (error) => {
             console.log('进入错误')

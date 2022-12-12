@@ -1,7 +1,6 @@
 <template>
   <!-- 动态组件切换 -->
-  <div class="component">
-    <div class="flex items-center text-center w-1/2">
+    <div class="flex items-center text-center">
       <div
         @click="cli(item, index)"
         v-for="(item, index) in tab.items"
@@ -16,7 +15,6 @@
     <keep-alive>
       <component :is="currentTab.tabComp"></component>
     </keep-alive>
-  </div>
 </template>
 <script setup lang="ts">
 import Customized from "@/components/discoverMusic/Customized.vue";

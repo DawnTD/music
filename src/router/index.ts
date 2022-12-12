@@ -15,7 +15,11 @@ const router = createRouter({
         {
           path:'/test',
           component:() =>import("@/layout/testg.vue")
-        }
+        },
+        {
+          path:'/songsheet',
+          component:() =>import("@/components/discoverMusic/SongSheet.vue")
+        },
       ]
     }
   ]
