@@ -3,7 +3,7 @@
         <div class="side-wrapper">
             <div class="side-title">Apps</div>
             <div class="side-menu">
-                <RouterLink class="isActive" to="/">
+                <RouterLink class="isActive" to="/findMusic">
                     <svg viewBox="0 0 512 512">
                         <g xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                             <path
