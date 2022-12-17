@@ -44,7 +44,7 @@ import { useSongDetail } from './stores/songDetail';
 import eventbus from "@/utlis/eventbus"
 const store = useSongDetail();
 let audio = ref()
-let test = computed(()=>store.songDetail)
+let test = computed(()=>store.songDetail) as any
 const t = () =>{
     if(audio.value.paused){
         audio.value.play()
