@@ -13,3 +13,15 @@ export const songSheetApi = (limit:number) => {
         url: `/personalized?limit=${limit}`,
     })
 }
+//电台个性推荐~
+export const getRadioRecommendApi = () => {
+    return http.get({
+        url: '/dj/personalize/recommend',
+    })
+}
+//歌单详情
+export const getSongDetailApi = (id:number) => {
+    return http.get({
+        url: `/playlist/detail?id=${id}`,
+    })
+}

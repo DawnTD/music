@@ -17,4 +17,15 @@ export const routes = [
             },
         ],
     },
+    {
+        path:"/SongDetail",
+        component:()=>import("@/views/SongDetail/songDetail.vue"),
+        children:[
+            {
+                path:"",
+                component:()=> import("@/views/SongDetail/page/SongList.vue")
+                
+            }
+        ]
+    }
 ];

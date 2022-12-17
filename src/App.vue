@@ -18,12 +18,10 @@
       <div class="wrapper">
           <Left></Left>
           <div class="main-container">
-              <!-- <MainHeader></MainHeader> -->
               <!-- 中间 -->
-              <div class="content-wrapper">
-                  <!-- <ContentHeader></ContentHeader> -->
+              <div class="content-wrapper p-0">
                   <!-- 中间头部结束 -->
-                  <div>
+                  <div class="relative">
                       <router-view />
                   </div>
                   <div class="playMusic"></div>
@@ -33,16 +31,38 @@
       </div>
       <div class="overlay-app"></div>
       <div class="flex w-auto border-t justify-center">
-          <audio class=" w-full rounded-none" src="https://music.163.com/song/media/outer/url?id=2004349271.mp3" controls loop autoplay></audio>
-      </div>
+          <audio ref="audio" class=" w-full rounded-none" :src="`https://music.163.com/song/media/outer/url?id=${test.id}.mp3`" controls loop autoplay></audio>
+      </div>      
   </div>
 </template>
 <script setup lang='ts'>
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
 import Left from '@/layout/left.vue';
 import MainHeader from '@/layout/mainHeader.vue';
-// import ContentHeader from './ContentHeader.vue'
 import Header from '@/layout/header.vue'
+import { useSongDetail } from './stores/songDetail';
+import eventbus from "@/utlis/eventbus"
+const store = useSongDetail();
+let audio = ref()
+let test = computed(()=>store.songDetail)
+const t = () =>{
+    if(audio.value.paused){
+        audio.value.play()
+    }else{
+        audio.value.pause()
+    }
+}
+const playMusic = () =>{
+    if(audio.value.paused){
+        audio.value.play()
+    }else{
+        audio.value.pause()
+    }
+}
+eventbus.on('playMusic',() => {
+    playMusic()
+})
+
 </script>
 <style scoped lang='scss'>
 </style>
