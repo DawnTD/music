@@ -30,10 +30,11 @@
           </div>
       </div>
       <div class="overlay-app"></div>
-      <div class="flex w-auto border-t justify-center">
-          <audio ref="audio" class=" w-full rounded-none" :src="`https://music.163.com/song/media/outer/url?id=${test.id}.mp3`" controls loop autoplay></audio>
-      </div>      
+     
   </div>
+  <div class="flex w-auto border-t justify-center">
+          <audio ref="audio" class=" w-full rounded-none" :src="`https://music.163.com/song/media/outer/url?id=${test.id}.mp3`" controls loop autoplay></audio>
+  </div> 
 </template>
 <script setup lang='ts'>
 import { ref, reactive, computed } from 'vue'

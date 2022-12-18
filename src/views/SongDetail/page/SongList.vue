@@ -6,7 +6,8 @@
       <el-table-column prop="cp" label="Address" />
       <el-table-column label="操作">
         <template #default="scope">
-          <el-button type="primary" size="default" @click="test(scope.row.id)">播放</el-button>
+          <!-- <el-button type="primary" size="default" @click="test(scope.row.id)">播放</el-button> -->
+          <button class=" px-3 py-2 rounded-xl hover:border border-red-500">播放</button>
         </template>
       </el-table-column>
     </el-table>

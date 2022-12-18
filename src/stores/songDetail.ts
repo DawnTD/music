@@ -6,7 +6,8 @@ export const useSongDetail = defineStore('songDetail', {
     state:()=>({
         count:0,
         songArray:[],
-        songDetail:''
+        songDetail:'',
+        songList:{boolean:false}, //歌单头部动态,
     }),
     actions:{
         increment(){
@@ -17,6 +18,10 @@ export const useSongDetail = defineStore('songDetail', {
             let res = await getSongDetailApi(id);
             console.log('res',res)
             this.songArray = res.data.playlist.tracks;
+            this.songList = {
+                ...res.data.playlist,
+                boolean:true
+            }
         }
     }
 })

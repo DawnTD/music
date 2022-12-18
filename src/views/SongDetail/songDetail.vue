@@ -1,23 +1,22 @@
 <template>
   <div class="px-4 py-5">
     <div class="flex w-full">
-      <div class="w-56 h-56">
-        <img
-          src="https://p1.music.126.net/XIY12wUKCu3qoRDdOVIYYQ==/109951168145171187.jpg"
-          alt=""
-        />
+      <div class="">
+        <el-image class="cover w-56 h-56 rounded-xl" :src="songList?.coverImgUrl" alt="img"></el-image>
       </div>
       <div class="ml-4">
         <div class="flex h-10 items-center">
-          <span>歌单</span>
+          <div class=" py-1 px-2 border border-red-500 rounded-md text-red-500 text-xs">歌单</div>
           <h2 class="ml-4 font-black text-2xl">
-            柏松的歌,总令人心动|华语私人雷达
+            {{songList.name}}
           </h2>
         </div>
         <div class="flex py-2 gap-2">
-          <div class="w-6 h-6 rounded-full bg-blue-500"></div>
-          <a href="#">云音乐官方歌单</a>
-          <span>2019-06-05创建</span>
+          <div class="w-6 h-6 rounded-full bg-blue-500">
+            <img class="rounded-full" :src="songList.creator.avatarUrl" alt="">
+          </div>
+          <a href="#">{{songList?.creator.nickname}}</a>
+          <span>{{$formatTime(songList.createTime)}}创建</span>
         </div>
         <div>
           <el-button type="danger" size="default" @click="">播放全部</el-button>
@@ -26,13 +25,13 @@
           <el-button size="default" @click="">下载全部</el-button>
         </div>
         <div class="pt-4">
-          <span>标签 : </span> <span>华语</span>
+          <p>标签: <span class="text-blue-400" v-for="(item,index) in songList.tags" :key="index">{{item}} / </span></p>
           <div>
-            <span>歌曲 : </span> <span>35</span>
+            <span>歌曲 : {{songList?.trackCount}}</span>
             <span class="ml-4">播放 : </span> <span>15亿</span>
           </div>
         </div>
-        <div class="mt-4">简介:</div>
+        <div class="w mt-4 h-6 truncate">简介:{{songList.description}}</div>
       </div>
     </div>
     <!-- 导航 -->
@@ -54,12 +53,13 @@ import { ref, reactive, computed } from "vue";
 import {useSongDetail} from "@/stores/songDetail"
 const store = useSongDetail();
 let test = computed(()=> store.count)
-const click = () =>{
-  store.increment()
-}
+const songList = computed(()=>store.songList) as any;
 </script>
 <style scoped lang="scss">
 .isActive {
   @apply text-xl border-b-2 border-red-500;
+}
+.w{
+  width: 650px;
 }
 </style>
