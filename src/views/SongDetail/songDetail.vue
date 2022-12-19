@@ -1,8 +1,9 @@
 <template>
   <div class="px-4 py-5">
-    <div class="flex w-full">
+    <Skelekon :loading="loading">
+      <div class="flex w-full">
       <div class="">
-        <el-image class="cover w-56 h-56 rounded-xl" :src="songList?.coverImgUrl" alt="img"></el-image>
+        <el-image class="w-56 h-56 rounded-xl" :src="songList?.coverImgUrl" alt="img"></el-image>
       </div>
       <div class="ml-4">
         <div class="flex h-10 items-center">
@@ -34,26 +35,29 @@
         <div class="w mt-4 h-6 truncate">简介:{{songList.description}}</div>
       </div>
     </div>
+    </Skelekon>
     <!-- 导航 -->
     <div class="flex w-full gap-6 mt-2 px-5 py-3 items-center">
-      <div class="isActive py-1">歌曲列表</div>
-      <div class="py-1">评论({{test}})</div>
+      <div @click="t" class="isActive py-1">歌曲列表</div>
+      <div class="py-1">评论</div>
       <div class="py-1">收藏者</div>      
     </div>
     <!-- test -->
     <RouterView></RouterView>
 
-    <div class="flex flex-wrap">
-      <div v-for="item in 50" class="w-5 h-1 bg-blue-500"></div>
-    </div>
   </div>
 </template>
 <script setup lang="ts">
 import { ref, reactive, computed } from "vue";
 import {useSongDetail} from "@/stores/songDetail"
+import Skelekon from "@/components/Skelekon.vue";
 const store = useSongDetail();
-let test = computed(()=> store.count)
 const songList = computed(()=>store.songList) as any;
+const loading = computed(()=>store.isLoading)
+
+const t = ()=>{
+  console.log('loading',loading)
+}
 </script>
 <style scoped lang="scss">
 .isActive {

@@ -9,7 +9,16 @@
       </el-carousel-item>
     </el-carousel>
     <!-- 推荐歌单 -->
-    <div>
+    <el-skeleton :loading="loading" animated style="width:100%;display: flex;">
+    <template #template>
+      <div class="flex justify-between flex-wrap gap-6 mt-4">
+        <div v-for="item in 10">
+          <el-skeleton-item variant="image" style="width: 160px; height: 160px" />
+        </div>
+      </div>
+    </template>
+    <template #default>
+      <div>
       <h1 class="text-xl flex items-center">
         推荐歌单<el-icon><ArrowRightBold /></el-icon>
       </h1>
@@ -20,6 +29,8 @@
         </div>
       </div>
     </div>
+    </template>
+  </el-skeleton>
     <!-- 热门播客 -->
     <div class="mt-5">
       <h1 class="text-xl flex items-center mt-7">
@@ -54,6 +65,7 @@ const router = useRouter();
 const img = ref(
   "https://p2.music.126.net/kZb9DO4vykqiYEx0HHx86w==/109951163065542645.jpg"
 );
+let loading = ref(true)
 const bannersData = reactive({
   banners: [] as any,
   result: [] as any,
@@ -68,6 +80,9 @@ const getTest = async () => {
 
 const getSongSheet = async () => {
   let res = await songSheetApi(10);
+  if(res){
+    loading.value = false;
+  }
   console.log("res", res);
   bannersData.result = res.data.result;
 };
