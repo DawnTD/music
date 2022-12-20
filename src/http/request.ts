@@ -20,8 +20,8 @@ class request {
     private interceptors() {
         //axios发送请求之前的处理
         this.instance.interceptors.request.use((config: AxiosRequestConfig) => {
-            console.log('请求发送之前')
-            console.log(config)
+            // console.log('请求发送之前')
+            // console.log(config)
             //在请求头部携带token
             let token = '';
             if (token) {
@@ -40,7 +40,7 @@ class request {
         //axios请求返回之后的处理
         //请求返回之后的处理
         this.instance.interceptors.response.use((res: AxiosResponse) => {
-            console.log(res)
+            // console.log(res)
             if (res.data.code != 200) {
                 return Promise.reject(res.data.msg || '服务器出错')
             } else {

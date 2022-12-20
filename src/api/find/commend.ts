@@ -25,3 +25,9 @@ export const getSongDetailApi = (id:number) => {
         url: `/playlist/detail?id=${id}`,
     })
 }
+// 推荐歌单
+export const getRecommendedSongListApi = (limit:number) => {
+    return http.get({
+        url: `/personalized?limit=${limit}`,
+    })
+}

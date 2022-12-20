@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-carousel :interval="4000" type="card" height="200px" class="mt-8">
+    <el-carousel :interval="4000" type="card" height="200px">
       <el-carousel-item v-for="item in bannersData.banners" :key="item">
         <el-image
           style="width: 100%; height: 220px; border-radius: 5px"
@@ -75,7 +75,7 @@ const bannersData = reactive({
 const getTest = async () => {
   let res = await testApi();
   bannersData.banners = res.data.banners;
-  console.log("bannersData.banners", bannersData.banners);
+  // console.log("bannersData.banners", bannersData.banners);
 };
 
 const getSongSheet = async () => {
@@ -83,14 +83,14 @@ const getSongSheet = async () => {
   if(res){
     loading.value = false;
   }
-  console.log("res", res);
+  // console.log("res", res);
   bannersData.result = res.data.result;
 };
 
 const getRadioRecommend = async () =>{
   let res = await getRadioRecommendApi();
   bannersData.RadioRecommend = res.data.data;
-  console.log('bannersData.RadioRecommend',bannersData.RadioRecommend)
+  // console.log('bannersData.RadioRecommend',bannersData.RadioRecommend)
 }
 //
 const songListDetail = (id:number) =>{

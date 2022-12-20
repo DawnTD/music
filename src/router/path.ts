@@ -15,6 +15,10 @@ export const routes = [
                 path: "/Customized",
                 component: () => import("@/views/Aside/findMusic/pages/Customized.vue"),
             },
+            {
+                path: "/SongSheet",
+                component: () => import("@/views/Aside/findMusic/pages/SongSheet.vue"),
+            },
         ],
     },
     {

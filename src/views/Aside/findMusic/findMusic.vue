@@ -10,12 +10,13 @@
       {{ item.title }}
     </div>
   </div>
-  <div class="px-4 py-5">
-    <router-view v-slot="{ Component }">
+  <div class="px-4 py-5 mt-8">
+    <!-- <router-view v-slot="{ Component }">
       <keep-alive>
         <component :is="Component"></component>
       </keep-alive>
-    </router-view>
+    </router-view> -->
+    <router-view></router-view>
   </div>
 </template>
 <script setup lang="ts">
@@ -25,9 +26,9 @@ const route = useRoute();
 const router = useRouter();
 const tab = reactive({
   items: [
-    { title: "个性推荐", path: "/" },
-    { title: "专属订制", path: "/Customized" },
-    { title: "歌单" },
+    { title: "个性推荐",path: "/" },
+    { title: "专属订制",path: "/Customized" },
+    { title: "歌单",path:"/SongSheet"},
     { title: "排行榜" },
     { title: "歌手" },
     { title: "最新音乐" },
