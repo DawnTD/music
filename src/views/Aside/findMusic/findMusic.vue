@@ -4,7 +4,7 @@
       @click="cli(item, index)"
       v-for="(item, index) in tab.items"
       :key="index"
-      :class="{ isActive: tab.active === index }"
+      :class="{ isActive: item.path == activePath}"
       class="py-2 px-3"
     >
       {{ item.title }}
@@ -20,13 +20,13 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, reactive } from "vue";
+import { ref, reactive, onMounted, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 const route = useRoute();
 const router = useRouter();
 const tab = reactive({
   items: [
-    { title: "个性推荐",path: "/" },
+    { title: "个性推荐",path: "/findMusic" },
     { title: "专属订制",path: "/Customized" },
     { title: "歌单",path:"/SongSheet"},
     { title: "排行榜" },
@@ -35,11 +35,27 @@ const tab = reactive({
   ],
   active: 0,
 });
+//当前路由路径
+const activePath = ref('');
+
+const setActivePath = ()=>{
+  activePath.value = route.path;
+}
 
 const cli = (item: any, index: any) => {
+  console.log('router',router)
+  console.log(route.path)
   tab.active = index;
   router.push(item.path);
 };
+//监听路由的变化
+watch(() => route.path, () => {
+    //设置激活的路由
+    setActivePath();
+})
+onMounted(()=>{
+  setActivePath()
+})
 </script>
 <style scoped lang="scss">
 .isActive {

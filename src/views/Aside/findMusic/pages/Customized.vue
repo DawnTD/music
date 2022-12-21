@@ -16,8 +16,8 @@
           <h1 class="text-xl flex items-center mt-6">
             你的歌单雷达
           </h1>
-          <div class="list flex justify-between flex-wrap gap-6 mt-4">
-            <div v-infinite-scroll="load" :infinite-scroll-disabled="disabled" @click="" v-for="(item, index) in data.list" :key="index" class="w-40">
+          <div class="list flex justify-between flex-wrap gap-8 mt-4">
+            <div v-infinite-scroll="load" :infinite-scroll-disabled="disabled" @click="songListDetail(item.id)" v-for="(item, index) in data.list" :key="index" class="w-40">
               <img :src="item.picUrl" alt="" class="w-40 h-40"/>
               <div class="text-sm">{{ item.name }}</div>
             </div>
@@ -35,7 +35,13 @@
 </template>
 <script setup lang="ts">
 import { getRecommendedSongListApi } from "@/api/find/commend";
+import { useSongDetail } from "@/stores/songDetail";
 import { ref, reactive, computed, onMounted } from "vue";
+import { useRouter } from "vue-router";
+const store = useSongDetail();
+const router = useRouter();
+
+
 const SKloading = ref(true);
 const loading = ref(false)
 const count = ref(20)
@@ -62,6 +68,11 @@ const dataPush = async () =>{
   limit += 5;
   let res = await getRecommendedSongListApi(limit);
   data.list.push(...res.data.result)
+}
+// 跳转歌单内容页
+const songListDetail = (id:number) =>{
+  store.getSongDetail(id);
+  router.push("/SongDetail")
 }
 onMounted(()=>{
   getMusicList()
