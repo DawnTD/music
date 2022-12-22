@@ -35,9 +35,9 @@
 </template>
 <script setup lang="ts">
 import { getRecommendedSongListApi } from "@/api/find/commend";
-import { useSongDetail } from "@/stores/songDetail";
 import { ref, reactive, computed, onMounted } from "vue";
 import { useRouter } from "vue-router";
+import { useSongDetail } from "@/stores/songDetail";
 const store = useSongDetail();
 const router = useRouter();
 

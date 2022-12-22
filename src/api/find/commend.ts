@@ -44,3 +44,9 @@ export const getBoutiqueSongTagListApi = () =>{
         url:'/playlist/highquality/tags'
     })
 }
+//歌单分类
+export const getSongListCassifyApi = () =>{
+    return http.get({
+        url:'/playlist/catlist'
+    })
+}

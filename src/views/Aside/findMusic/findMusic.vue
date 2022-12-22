@@ -1,5 +1,5 @@
 <template>
-  <div class="nav flex items-center text-center fixed z-50 w-full ml-0 top-14 px-4">
+  <div class="zIndex nav flex items-center text-center fixed z-50 w-full ml-0 top-14 px-4">
     <div
       @click="cli(item, index)"
       v-for="(item, index) in tab.items"
@@ -64,5 +64,8 @@ onMounted(()=>{
   border-bottom: 1px solid var(--border-color);
   color: var(--inactive-color);
   background-color: var(--search-bg);
+}
+.zIndex{
+  z-index: 9999;
 }
 </style>
