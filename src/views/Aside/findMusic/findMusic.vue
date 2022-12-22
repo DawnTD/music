@@ -43,8 +43,6 @@ const setActivePath = ()=>{
 }
 
 const cli = (item: any, index: any) => {
-  console.log('router',router)
-  console.log(route.path)
   tab.active = index;
   router.push(item.path);
 };

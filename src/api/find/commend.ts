@@ -31,3 +31,16 @@ export const getRecommendedSongListApi = (limit:number) => {
         url: `/personalized?limit=${limit}`,
     })
 }
+//获取精品歌单
+export const getBoutiqueSongListApi = (params?:any) => {
+    return http.get({
+        url: '/top/playlist/highquality',
+        params,
+    })
+}
+//精品歌单标签列表
+export const getBoutiqueSongTagListApi = () =>{
+    return http.get({
+        url:'/playlist/highquality/tags'
+    })
+}

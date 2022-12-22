@@ -42,8 +42,10 @@
       <div class="py-1">评论</div>
       <div class="py-1">收藏者</div>      
     </div>
+
     <!-- test -->
     <RouterView></RouterView>
+    <WidthMax></WidthMax>
 
   </div>
 </template>
@@ -51,6 +53,7 @@
 import { ref, reactive, computed } from "vue";
 import {useSongDetail} from "@/stores/songDetail"
 import Skelekon from "@/components/Skelekon.vue";
+import WidthMax from "@/components/WidthMax.vue";
 const store = useSongDetail();
 const songList = computed(()=>store.songList) as any;
 const loading = computed(()=>store.isLoading)
