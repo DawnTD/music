@@ -1,6 +1,10 @@
 <template>
         <div class="header">
             <div class="menu-circle"></div>
+            <div class=" ml-4 flex gap-4 text-slate-400">
+                <div class="cursor-pointer" @click="BP"><el-icon><ArrowLeft /></el-icon></div>
+                <div class="cursor-pointer" @click="BR"><el-icon><ArrowRight /></el-icon></div>
+            </div>
             <div class="search-bar">
                 <input v-model="seatch" @keyup.enter="queryBtnH" type="text" placeholder="搜索">
             </div>
@@ -17,7 +21,7 @@
                         d="M448.773 235.551A135.893 135.893 0 00451 211c0-74.443-60.557-135-135-135-47.52 0-91.567 25.313-115.766 65.537-32.666-10.59-66.182-6.049-93.794 12.979-27.612 19.013-44.092 49.116-45.425 82.031C24.716 253.788 0 290.497 0 331c0 7.031 1.703 13.887 3.006 20.537l.015.015C12.719 400.492 56.034 436 106 436h300c57.891 0 106-47.109 106-105 0-40.942-25.053-77.798-63.227-95.449z" />
                 </svg>
                 <img class="profile-img"
-                    src="https://images.unsplash.com/photo-1600353068440-6361ef3a86e8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                    src="https://inews.gtimg.com/newsapp_bt/0/9680744080/641"
                     alt="">
             </div>
         </div>
@@ -31,6 +35,12 @@ const seatch = ref('')
 const queryBtnH = ()=>{
     // store.setCount(seatch.value)
     router.push({ path: '/test' , query: { keyworks:seatch.value}})
+}
+const BP = ()=>{
+    router.go(-1)
+}
+const BR = ()=>{
+    router.go(1)
 }
 </script>
 <style scoped lang='scss'>
