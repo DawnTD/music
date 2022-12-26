@@ -25,5 +25,5 @@ module.exports = {
     confirmCommit: '确定要使用以上信息提交:(y/n)'
   },
   //跳过步骤
-  skipQuestions: ['footer']
+  skipQuestions: ['footer', 'customScope']
 }
