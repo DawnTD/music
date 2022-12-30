@@ -8,7 +8,7 @@ export const testApi = () => {
 
 
 // 推荐歌单
-export const songSheetApi = (limit:number) => {
+export const songSheetApi = (limit: number) => {
     return http.post({
         url: `/personalized?limit=${limit}`,
     })
@@ -20,33 +20,39 @@ export const getRadioRecommendApi = () => {
     })
 }
 //歌单详情
-export const getSongDetailApi = (id:number) => {
+export const getSongDetailApi = (id: number) => {
     return http.get({
         url: `/playlist/detail?id=${id}`,
     })
 }
 // 推荐歌单
-export const getRecommendedSongListApi = (limit:number) => {
+export const getRecommendedSongListApi = (limit: number) => {
     return http.get({
         url: `/personalized?limit=${limit}`,
     })
 }
 //获取精品歌单
-export const getBoutiqueSongListApi = (params?:any) => {
+export const getBoutiqueSongListApi = (params?: any) => {
     return http.get({
         url: '/top/playlist/highquality',
         params,
     })
 }
 //精品歌单标签列表
-export const getBoutiqueSongTagListApi = () =>{
+export const getBoutiqueSongTagListApi = () => {
     return http.get({
-        url:'/playlist/highquality/tags'
+        url: '/playlist/highquality/tags'
     })
 }
 //歌单分类
-export const getSongListCassifyApi = () =>{
+export const getSongListCassifyApi = () => {
     return http.get({
-        url:'/playlist/catlist'
+        url: '/playlist/catlist'
+    })
+}
+//排行榜
+export const getSongListTopApi = () => {
+    return http.get({
+        url: 'toplist/detail'
     })
 }

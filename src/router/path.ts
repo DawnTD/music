@@ -19,16 +19,20 @@ export const routes = [
                 path: "/SongSheet",
                 component: () => import("@/views/Aside/findMusic/pages/SongSheet.vue"),
             },
+            {
+                path: "/RankingList",
+                component: () => import("@/views/Aside/findMusic/pages/RankingList.vue"),
+            },
         ],
     },
     {
-        path:"/SongDetail",
-        component:()=>import("@/views/SongDetail/songDetail.vue"),
-        children:[
+        path: "/SongDetail",
+        component: () => import("@/views/SongDetail/songDetail.vue"),
+        children: [
             {
-                path:"",
-                component:()=> import("@/views/SongDetail/page/SongList.vue")
-                
+                path: "",
+                component: () => import("@/views/SongDetail/page/SongList.vue")
+
             }
         ]
     }
