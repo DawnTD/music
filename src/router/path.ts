@@ -23,6 +23,10 @@ export const routes = [
                 path: "/RankingList",
                 component: () => import("@/views/Aside/findMusic/pages/RankingList.vue"),
             },
+            {
+                path: "/Singer",
+                component: () => import("@/views/Aside/findMusic/pages/Singer.vue"),
+            }
         ],
     },
     {

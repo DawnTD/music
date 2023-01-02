@@ -32,7 +32,7 @@ const tab = reactive({
     { title: '专属订制', path: '/Customized' },
     { title: '歌单', path: '/SongSheet' },
     { title: '排行榜', path: '/RankingList' },
-    { title: '歌手' },
+    { title: '歌手', path: '/Singer' },
     { title: '最新音乐' }
   ],
   active: 0

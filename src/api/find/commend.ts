@@ -1,4 +1,5 @@
 import http from "@/http/index";
+import type { SingersParm } from "@/type";
 
 export const testApi = () => {
     return http.post({
@@ -54,5 +55,18 @@ export const getSongListCassifyApi = () => {
 export const getSongListTopApi = () => {
     return http.get({
         url: 'toplist/detail'
+    })
+}
+
+//歌手分类列表
+// export const getsingersOfClassificationApi = (area: string, type: string, initial: string, limit: string, offset: string) => {
+//     return http.get({
+//         url: `/artist/list?type=${type}&area=${area}&initial=${initial}&limit=${limit}&offset=${offset}`
+//     })
+// }
+
+export const getsingersOfClassificationApi = (parm: SingersParm) => {
+    return http.get({
+        url: `/artist/list?type=${parm.type}&area=${parm.area}&initial=${parm.initial}&limit=${parm.limit}&offset=${parm.offset}`
     })
 }
